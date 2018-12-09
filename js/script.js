@@ -6,6 +6,8 @@
 	*/
 	
 	var test = document.getElementById('modal-overlay');
+	var close = document.querySelectorAll(".modal .close");
+	var modals = document.querySelectorAll(".modal");
 
 test.addEventListener("click", showModal);
 
@@ -13,12 +15,10 @@ test.addEventListener("click", showModal);
 	var showModal = function(event){
 		event.preventDefault();	
 		document.querySelector('#modal-overlay').classList.add('show');
-
-		var a = event.target;
-		alert(a = a.getAttribute('href'));
-		//alert(event.target);
-
-		document.querySelector(a).classList.add('show');
+		for (var i = 0; i < modals.length; i++) {
+     		modals[i].classList.remove("show");
+     	}
+		document.querySelector(this.getAttribute("href")).classList.add('show');
 		
 	};
 	
